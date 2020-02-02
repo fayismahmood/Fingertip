@@ -1,0 +1,297 @@
+@mixin grad {
+    background-image: linear-gradient(75deg, #4e4376,#1330b1);
+}
+@mixin gradTxtCol {
+    @include grad();
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@mixin absmiddleVer($h) {
+   
+    top:calc(50% - #{$h}/2);
+    
+}
+@mixin absmiddleHor($h) {
+    left:calc(50% - #{$h}/2);
+    
+}
+@mixin absmiddle($h,$w) {
+    @include absmiddleHor($w);
+    @include absmiddleVer($h);
+}
+
+
+
+::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+  background-color: rgb(216, 216, 216);
+}
+::-webkit-scrollbar-thumb{
+  
+  @include grad();
+  border-radius:12px;
+}
+
+
+
+
+body,body *{
+    margin: 0;
+    font-family: Gotham Rounded;
+}
+.header{
+    height: 450px;
+    width: 100%;
+    top: 0;
+    position: relative;
+    background-image: linear-gradient(190deg, #8fa5de, #46368b40 35%, #ffffff00 60%);
+   /// clip-path: polygon(100% 0, 100% 90%, 90% 90%,91% 90%, 23% 62%, 0 70%, 0 0);    
+    svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+     :nth-child(1){
+         display: flex;
+         flex-direction: row;
+         justify-content: flex-end;
+     
+         img{
+            @include grad();
+             padding: 3px;
+             margin: 10px;
+             border-radius: 35px;;
+            }
+            a{
+                text-decoration: none;
+            }
+         .btn{
+               
+                margin: 0px 15px 15px 15px;
+                vertical-align: middle;
+                line-height: 40px;
+                padding: 10px;
+                color: #ffffff;
+            }
+            
+        }
+        .btn:hover{
+            position: relative;
+        }
+        .btn:hover:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 15px;
+            border-radius: 5px;
+            height:4px;
+            width: 100%;
+            background-color: #6f8ad1;
+            animation: scal .1s;
+        }
+    
+        img:nth-child(2){
+            position: absolute;
+            width: 400px;
+            opacity: .1;
+            left: 30px;
+        }
+        img:nth-child(3){
+            height:450px;
+            position: absolute;
+            z-index: -1;
+            right: 10px;
+            bottom: 35px;
+        }
+         .btn:hover{
+        position: relative;
+    }
+    .btn:hover:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 15px;
+        border-radius: 5px;
+        height:4px;
+        width: 100%;
+        background-color: #6f8ad1;
+        animation: scal .1s;
+    }
+
+    img:nth-child(2){
+        position: absolute;
+        width: 200px;
+        left: 30px;
+    }
+    img:nth-child(3){
+        height:450px;
+        position: absolute;
+        z-index: -1;
+        right: 10px;
+        bottom: 35px;
+    }
+    .headquat{
+        width: 400px;
+        padding: 30px;
+        font-size:40px;
+        text-shadow: 0 0 20px #8d5fca;
+        
+
+        @include gradTxtCol();
+
+        }
+        .getStdbut{
+            padding: 30px;
+            display: flex;
+            flex-direction: row;
+            button{
+                margin: 10px;
+                border: none;
+                padding: 10px;
+                font-size: 15px;
+            }:nth-child(1){
+                background-color: white;
+                color: #192398;
+                border-radius: 6px;
+                box-shadow: 0 0 20px -10px #450fe8
+            }
+            :hover{
+                position: relative;
+                background: none;
+            }
+            :hover::after{
+                position: absolute;
+                content: '';
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                background-color: #cfd5f3;
+                animation:scal .3s ;
+            }
+            
+            :nth-child(2){
+                border:5px solid;
+                border-image-source:linear-gradient(75deg,#000436,#4363f5);
+                border-image-slice: 1;
+                background: none;
+
+                @include gradTxtCol();
+            }
+
+        }
+        
+}
+.cont1{
+    position: relative;
+    top: 90px;
+    @include grad();
+    width: 100%;
+    height: max-content;
+
+    
+    >div:nth-child(1){
+        position: relative;
+        background-color: #ffffff;
+        top:-80px;
+        left: 5%;
+        width: 90%;
+        height: 550px;
+        border-radius: 5px;
+        box-shadow:-1px 20px 60px -15px #000000;
+        background-image: url("../img/Untitled.png");
+        
+    }
+    >div:nth-child(2){
+        position: relative;
+        top: -120px;
+        padding: 5%;
+        height: max-content;
+        width: 90%;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+
+        text-shadow: 0 0 20px #0d196f;
+        >div{
+            padding-top: 30px;
+            width: 260px;
+            .ico{
+                position: relative;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border:solid #6f8ad1 3px;
+                color: #6f8ad1;
+                margin-bottom: 10px;
+                i{
+                    position: absolute;
+                    font-size: 35px;
+                    @include absmiddle(35px,35px)
+                }
+            }
+        }
+      
+        
+}
+
+}
+.cont2{
+    width: calc(100% - 160px);
+    height: max-content;
+    padding: 80px;
+    position: relative;
+    top: 60px;
+    div{
+        border-radius: 5px;
+        padding: 40px;
+        box-shadow:#121e6a -1px 11px 20px -10px;
+        font-size: larger;
+        color:rgb(255, 255, 255);
+    }
+}
+
+
+.typocon{
+    padding-top: 10px;
+    font-family: Gotham Rounded med;
+    font-weight: 100;
+    color: #6f8ad1;
+}
+
+
+
+@font-face {
+    src: url("roboto-slab/GothamRounded-Bold.otf");
+    font-family: Gotham Rounded;
+
+}
+@font-face {
+    src: url("roboto-slab/GothamRounded-Light.otf");
+    font-family: Gotham Rounded med;
+
+}
+
+
+
+
+@keyframes scal{
+    0%{
+        border-radius: 50%;
+        transform: scaleX(0);
+    }100%{
+        transform: scaleX(1);
+    }
+}
+
+@keyframes op{
+    0%{
+        transform: scale(0);
+    }100%{
+        transform: scale(1);
+    }
+}
